@@ -1,7 +1,5 @@
-﻿################################################################################
-# 이 .gitignore 파일은 Microsoft(R) Visual Studio에서 자동으로 만들어졌습니다.
-################################################################################
-
-/EventCollectAPI/bin/Debug/netcoreapp2.2
+﻿/EventCollectAPI/bin/Debug/netcoreapp2.2
 /EventCollectAPI/obj/Debug/netcoreapp2.2
-.vs
+.vs/EventCollectAPI/v15/.suo
+.vs/EventCollectAPI/v15/Server/sqlite3/storage.ide
+.vs/EventCollectAPI/v15/Server/sqlite3/storage.ide-wal
