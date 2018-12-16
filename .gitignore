@@ -3,3 +3,5 @@
 ################################################################################
 
 /EventCollectAPI/bin/Debug/netcoreapp2.2
+/EventCollectAPI/obj/Debug/netcoreapp2.2
+.vs
