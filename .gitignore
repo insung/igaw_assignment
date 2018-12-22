@@ -3,6 +3,7 @@
 .vs/EventCollectAPI/DesignTimeBuild/.dtbcache
 .vs/EventCollectAPI/v15/.suo
 .vs/EventCollectAPI/v15/Server/sqlite3/storage.ide
+.vs/EventCollectAPI/v15/Server/sqlite3/storage.ide-shm
 .vs/EventCollectAPI/v15/Server/sqlite3/storage.ide-wal
 EventCollectAPI/bin
 EventCollectAPI/obj

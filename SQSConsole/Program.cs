@@ -2,21 +2,23 @@
 using Amazon.SQS;
 using Amazon.SQS.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SQSConsole
 {
     class Program
     {
+        private static readonly string QUEUE_URL = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+
         static void Main(string[] args)
         {
             var client = new AmazonSQSClient(RegionEndpoint.APNortheast2);
-            GetUrl(client);
+            //GetUrl(client);
+            //for (int i=0; i< 10; i++)
             SendMessage(client);
             //GetMessage(client);
-            Console.WriteLine("Hello World!");
+
+            Console.WriteLine("Hello SQS!");
         }
 
         static void GetUrl(AmazonSQSClient client)
@@ -33,7 +35,7 @@ namespace SQSConsole
         static void SendMessage(AmazonSQSClient client)
         {
             var req = new SendMessageRequest();
-            req.QueueUrl = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+            req.QueueUrl = QUEUE_URL;
             req.MessageBody = "test2";
             var response = client.SendMessageAsync(req).Result;
             Console.WriteLine("res: " + response.HttpStatusCode);
@@ -42,7 +44,7 @@ namespace SQSConsole
         static void GetMessage(AmazonSQSClient client)
         {
             var req = new ReceiveMessageRequest();
-            req.QueueUrl = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+            req.QueueUrl = QUEUE_URL;
             var response = client.ReceiveMessageAsync(req).Result;
 
             if (response.Messages.Any())
@@ -52,7 +54,7 @@ namespace SQSConsole
                     Console.WriteLine("msg " + message.Body);
 
                     var deleteReq = new DeleteMessageRequest();
-                    deleteReq.QueueUrl = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+                    deleteReq.QueueUrl = QUEUE_URL;
                     deleteReq.ReceiptHandle = message.ReceiptHandle;
 
                     var result = client.DeleteMessageAsync(deleteReq).Result;
