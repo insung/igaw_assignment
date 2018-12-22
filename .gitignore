@@ -1,5 +1,6 @@
 ﻿/EventCollectAPI/bin/Debug/netcoreapp2.2
 /EventCollectAPI/obj/Debug/netcoreapp2.2
+.vs/EventCollectAPI/DesignTimeBuild/.dtbcache
 .vs/EventCollectAPI/v15/.suo
 .vs/EventCollectAPI/v15/Server/sqlite3/storage.ide
 .vs/EventCollectAPI/v15/Server/sqlite3/storage.ide-wal
