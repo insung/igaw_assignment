@@ -3,3 +3,9 @@
 .vs/EventCollectAPI/v15/.suo
 .vs/EventCollectAPI/v15/Server/sqlite3/storage.ide
 .vs/EventCollectAPI/v15/Server/sqlite3/storage.ide-wal
+EventCollectAPI/bin
+EventCollectAPI/obj
+SQSConsole/bin
+SQSConsole/obj
+EventCollectWorker_nodejs/node_modules
+EventCollectWorker_nodejs/package-lock.json
