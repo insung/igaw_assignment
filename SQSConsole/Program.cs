@@ -1,6 +1,8 @@
 ﻿using Amazon;
 using Amazon.SQS;
 using Amazon.SQS.Model;
+using EventCollectAPI.Models;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
 
@@ -34,11 +36,25 @@ namespace SQSConsole
 
         static void SendMessage(AmazonSQSClient client)
         {
+            string id = Guid.NewGuid().ToString();
+            IGAWEvent ev = new IGAWEvent();
+            IGAWOrder pa = new IGAWOrder();
+            ev.event_id = id;
+            ev.event_name = "purchase";
+            ev.user_id = id;
+            pa.order_id = id;
+            pa.currency = "krw";
+            pa.price = 300;
+            ev.parameters = pa;
+
             var req = new SendMessageRequest();
             req.QueueUrl = QUEUE_URL;
-            req.MessageBody = "test2";
+            req.MessageBody = JsonConvert.SerializeObject(ev);
             var response = client.SendMessageAsync(req).Result;
-            Console.WriteLine("res: " + response.HttpStatusCode);
+            Console.WriteLine("status code: " + response.HttpStatusCode);
+            Console.WriteLine("md5 body: " + response.MD5OfMessageBody);
+            Console.WriteLine("msg id: " + response.MessageId);
+            Console.WriteLine("msg length: " + response.ContentLength);
         }
 
         static void GetMessage(AmazonSQSClient client)
