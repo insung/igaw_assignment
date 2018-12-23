@@ -8,7 +8,6 @@ namespace EventCollectAPI.Models
 {
     public class IGAWEvent
     {
-        [Key]
         public string event_id { get; set; }
         public string user_id { get; set; }
         public string event_name { get; set; }
