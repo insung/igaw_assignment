@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventCollectAPI", "EventCol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQSConsole", "SQSConsole\SQSConsole.csproj", "{4C4D3B7D-EDC9-4BC6-B264-BD01167B1E40}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSearchAPI", "EventSearchAPI\EventSearchAPI.csproj", "{3CF46692-C906-4C66-B296-A50AF2641462}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventClassLibrary", "EventClassLibrary\EventClassLibrary.csproj", "{7C9C9207-2D98-44C4-B5C1-8250527DB2BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4C4D3B7D-EDC9-4BC6-B264-BD01167B1E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C4D3B7D-EDC9-4BC6-B264-BD01167B1E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C4D3B7D-EDC9-4BC6-B264-BD01167B1E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF46692-C906-4C66-B296-A50AF2641462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF46692-C906-4C66-B296-A50AF2641462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF46692-C906-4C66-B296-A50AF2641462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF46692-C906-4C66-B296-A50AF2641462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9C9207-2D98-44C4-B5C1-8250527DB2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9C9207-2D98-44C4-B5C1-8250527DB2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9C9207-2D98-44C4-B5C1-8250527DB2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9C9207-2D98-44C4-B5C1-8250527DB2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

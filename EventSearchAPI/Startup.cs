@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using EventSearchAPI.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
-namespace EventCollectAPI
+namespace EventSearchAPI
 {
     public class Startup
     {
@@ -21,10 +27,8 @@ namespace EventCollectAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.KnownProxies.Add(IPAddress.Parse("52.79.243.163"));
-            });
+            services.AddDbContext<EventDBContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,12 +44,6 @@ namespace EventCollectAPI
                 app.UseHsts();
             }
 
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
-            
-            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

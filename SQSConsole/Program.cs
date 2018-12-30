@@ -1,7 +1,8 @@
 ﻿using Amazon;
+using Amazon.Runtime;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using EventCollectAPI.Models;
+using EventClassLibrary.Models;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
@@ -11,10 +12,11 @@ namespace SQSConsole
     class Program
     {
         private static readonly string QUEUE_URL = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+        private static BasicAWSCredentials awsCredential = new BasicAWSCredentials("AKIAI3C6XGQ3AAONQK5Q", "zK//5PQtSfNzY6LJziCvDZW+N9wNNq08fQe/G0ti");
 
         static void Main(string[] args)
         {
-            var client = new AmazonSQSClient(RegionEndpoint.APNortheast2);
+            var client = new AmazonSQSClient(awsCredential, Amazon.RegionEndpoint.APNortheast2);
             //GetUrl(client);
             //for (int i=0; i< 10; i++)
             SendMessage(client);
@@ -37,8 +39,8 @@ namespace SQSConsole
         static void SendMessage(AmazonSQSClient client)
         {
             string id = Guid.NewGuid().ToString();
-            IGAWEvent ev = new IGAWEvent();
-            IGAWOrder pa = new IGAWOrder();
+            DOEvent ev = new DOEvent();
+            DOParameter pa = new DOParameter();
             ev.event_id = id;
             ev.event_name = "purchase";
             ev.user_id = id;

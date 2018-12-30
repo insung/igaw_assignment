@@ -1,7 +1,8 @@
 ﻿using Amazon;
+using Amazon.Runtime;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using EventCollectAPI.Models;
+using EventClassLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -11,16 +12,17 @@ namespace EventCollectAPI.Controllers
     [ApiController]
     public class CollectController : ControllerBase
     {
-        private readonly string SQS_QUEUE_URL = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+        private static readonly string SQS_QUEUE_URL = "https://sqs.ap-northeast-2.amazonaws.com/468917192189/EventCollectQueue";
+        private static BasicAWSCredentials awsCredential = new BasicAWSCredentials("AKIAI3C6XGQ3AAONQK5Q", "zK//5PQtSfNzY6LJziCvDZW+N9wNNq08fQe/G0ti");
 
         public CollectController()
         {
         }
 
         [HttpPost]
-        public IActionResult PostEvent(IGAWEvent e)
+        public IActionResult PostEvent(DOEvent e)
         {
-            AmazonSQSClient SQS_Client = new AmazonSQSClient(RegionEndpoint.APNortheast2);
+            AmazonSQSClient SQS_Client = new AmazonSQSClient(awsCredential, RegionEndpoint.APNortheast2);
             var request = new SendMessageRequest();
             request.QueueUrl = SQS_QUEUE_URL;
             request.MessageBody = JsonConvert.SerializeObject(e);
