@@ -15,6 +15,7 @@ namespace EventSearchAPI.Models
             
         }
 
-        public DbSet<DOEvent> EventItems { get; set; }
+        public DbSet<DOEvent> event_collects { get; set; }
+        public DbSet<DOParameter> parameters { get; set; }
     }
 }
