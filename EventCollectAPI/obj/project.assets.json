@@ -4794,6 +4794,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "EventClassLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/EventClassLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventClassLibrary.dll": {}
+        }
       }
     }
   },
@@ -13224,11 +13234,17 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "EventClassLibrary/1.0.0": {
+      "type": "project",
+      "path": "../EventClassLibrary/EventClassLibrary.csproj",
+      "msbuildProject": "../EventClassLibrary/EventClassLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "AWSSDK.SQS >= 3.3.3.42",
+      "EventClassLibrary >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13243,11 +13259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\insung\\Documents\\GitHub\\igaw_assignment\\EventCollectAPI\\EventCollectAPI.csproj",
+      "projectUniqueName": "C:\\Users\\insung\\Documents\\GitHub\\igaw\\EventCollectAPI\\EventCollectAPI.csproj",
       "projectName": "EventCollectAPI",
-      "projectPath": "C:\\Users\\insung\\Documents\\GitHub\\igaw_assignment\\EventCollectAPI\\EventCollectAPI.csproj",
+      "projectPath": "C:\\Users\\insung\\Documents\\GitHub\\igaw\\EventCollectAPI\\EventCollectAPI.csproj",
       "packagesPath": "C:\\Users\\insung\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\insung\\Documents\\GitHub\\igaw_assignment\\EventCollectAPI\\obj\\",
+      "outputPath": "C:\\Users\\insung\\Documents\\GitHub\\igaw\\EventCollectAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13265,7 +13281,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\insung\\Documents\\GitHub\\igaw\\EventClassLibrary\\EventClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\insung\\Documents\\GitHub\\igaw\\EventClassLibrary\\EventClassLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
