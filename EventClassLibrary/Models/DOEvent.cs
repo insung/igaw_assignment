@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace EventCollectAPI.Models
+namespace EventClassLibrary.Models
 {
-    public class IGAWEvent
+    public class DOEvent
     {
         public string event_id { get; set; }
         public string user_id { get; set; }
         public string event_name { get; set; }
-        public IGAWOrder parameters { get; set; }
+        public DOParameter parameters { get; set; }
     }
 }

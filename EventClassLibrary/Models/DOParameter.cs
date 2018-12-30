@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace EventCollectAPI.Models
+namespace EventClassLibrary.Models
 {
-    public class IGAWOrder
+    public class DOParameter
     {
         public string order_id { get; set; }
         public string currency { get; set; }
