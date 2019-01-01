@@ -1,0 +1,108 @@
+extends ../shared/layout.pug
+
+block main_page
+  .wrapper.wrapper-content
+    .row
+      .col-lg-3
+        .ibox.float-e-margins
+          .ibox-title
+            h5 주문 현황
+          .ibox-content
+            h1.no-margins 275,800 건
+            .stat-percent.font-bold.text-info 20%
+              i.fa.fa-level-up
+            small New orders
+      .col-lg-3
+        .ibox.float-e-margins
+          .ibox-title
+            h5 구입 현황
+          .ibox-content
+            h1.no-margins 150,300
+            .stat-percent.font-bold.text-success 5%
+              i.fa.fa-level-up
+            small New purchase
+      .col-lg-3
+        .ibox.float-e-margins
+          .ibox-title
+            h5 취소 현황
+          .ibox-content
+            h1.no-margins 50,200
+            .stat-percent.font-bold.text-warning 25%
+              i.fa.fa-level-down
+            small New orders
+      .col-lg-3
+        .ibox.float-e-margins
+          .ibox-title
+            h5 환불 현황
+          .ibox-content
+            h1.no-margins 30,800
+            .stat-percent.font-bold.text-danger 20%
+              i.fa.fa-level-down
+            small refund
+    
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 Orders
+            .pull-right
+              .btn-group
+                button.btn.btn-xs.btn-white.active(type='button') Monthly
+          .ibox-content
+            .row
+              .col-lg-9
+                .flot-chart
+                  .flot-chart-content#flot-dashboard-chart
+              .col-lg-3
+                ul.stat-list
+                  li
+                    h2.no-margins 2,346
+                    small total purchase
+                    .stat-percent 48%
+                      i.fa.fa-level-up.text-navy
+                    .progress.progress-mini
+                      .progress-bar(style='width: 48%;')
+                  li
+                    h2.no-margins 2,346
+                    small total cancel
+                    .stat-percent 48%
+                      i.fa.fa-level-up.text-navy
+                    .progress.progress-mini
+                      .progress-bar(style='width: 48%;')
+                  li
+                    h2.no-margins 2,346
+                    small total refund
+                    .stat-percent 48%
+                      i.fa.fa-level-up.text-navy
+                    .progress.progress-mini
+                      .progress-bar(style='width: 48%;')
+
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 Request Form
+          .ibox-content
+            form.form-horizontal(action="")
+              .form-group
+                .col-lg-2.control-label 사용자
+                .col-lg-6
+                  select.form-control.m-b(name='user')
+                    option User1
+                    option User2
+                    option User3
+              .form-group
+                .col-lg-2.control-label 이벤트
+                .col-lg-6
+                  select.form-control.m-b(name='user')
+                    option 구입
+                    option 취소
+                    option 환불
+              .form-group
+                .col-lg-2.control-label 가격
+                .col-lg-6
+                  input.form-control(type='text' value='3000')
+              .hr-line-dashed(style='margin-bottom: 10px;')
+              .form-group
+                .col-lg-4
+                button.btn(type='submit' text='app') Apply

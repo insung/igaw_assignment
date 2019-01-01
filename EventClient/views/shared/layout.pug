@@ -1,0 +1,18 @@
+doctype html
+
+html
+  include style.pug
+  include header.pug
+body.gray-bg
+  include panel-top.pug
+  block main_page
+  include footer.pug
+  include script.pug
+
+//- layout 은 아래와 같이 구성됨
+//- ┌──────┐┌──────────┐
+//- │      ││ Top Panel│
+//- │ Left │└──────────┘
+//- │ Panel│┌──────────┐
+//- │      ││Main Panel│
+//- └──────┘└──────────┘
