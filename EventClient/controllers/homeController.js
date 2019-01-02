@@ -25,7 +25,7 @@ var add = function (req, res) {
     }
   }`;
 
-  fetch('http://localhost:5000/api/collect', {
+  fetch('http://13.125.77.243/api/collect', {
     method: 'post',
     body: jsonData,
     headers: { 'Content-Type': 'application/json' }
