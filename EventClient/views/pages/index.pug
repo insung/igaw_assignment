@@ -83,7 +83,7 @@ block main_page
           .ibox-title
             h5 Request Form
           .ibox-content
-            form.form-horizontal(action="")
+            form.form-horizontal#submitform
               .form-group
                 .col-lg-2.control-label 사용자
                 .col-lg-6
@@ -94,15 +94,33 @@ block main_page
               .form-group
                 .col-lg-2.control-label 이벤트
                 .col-lg-6
-                  select.form-control.m-b(name='user')
-                    option 구입
-                    option 취소
-                    option 환불
+                  select.form-control.m-b(name='event')
+                    option(value='purchase') 구입
+                    option(value='cancel') 취소
+                    option(value='refund') 환불
               .form-group
                 .col-lg-2.control-label 가격
                 .col-lg-6
-                  input.form-control(type='text' value='3000')
+                  input.form-control(type='text' value='3000' name='price')
+              .form-group
+                .col-lg-2.control-label 날짜
+                .col-lg-6
+                  input.form-control(type='text' value=date name='date')
               .hr-line-dashed(style='margin-bottom: 10px;')
               .form-group
                 .col-lg-4
-                button.btn(type='submit' text='app') Apply
+                button.btn#apply-btn(type='submit' text='app') Apply
+
+  script.
+    $('#apply-btn').on('click', function(e) {
+        //e.preventDefault();
+        var data = $('#submitform').serialize();
+        
+        $.post('/event/add', data)
+          .done(function(result) {
+            alert('Your request complete!');
+          })
+          .fail(function(res) {
+            alert('Your request failed!');
+          });
+    });
