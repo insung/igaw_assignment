@@ -86,13 +86,15 @@ block main_page
             table.table.table-hover
               thead
                 tr
+                  th #
                   th user id
                   th event name
                   th price
                   th currency
               tbody
-                each event in events
+                each event, cnt in events
                   tr
+                    td=cnt
                     td=event.user_id
                     td=event.event_name
                     td=event.parameters.price
