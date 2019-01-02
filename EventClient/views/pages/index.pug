@@ -141,9 +141,8 @@ block main_page
         
         $.post('/event/add', data)
           .done(function(result) {
-            alert('Your request complete!');
+            location.reload();
           })
           .fail(function(res) {
-            alert('Your request failed!');
           });
     });
