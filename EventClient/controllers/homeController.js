@@ -3,12 +3,16 @@ var uuid = require('uuid/v4');
 var moment = require('moment');
 
 var index = function (req, res) {
-  //var now = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-  //var nowString = `${now.getFullYear()}-${now.getMonth()}-${now.getDay()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
-  
-  res.render('pages/index', {
-    date: moment().format('YYYY-MM-DD HH:mm:ss')
-  });
+
+  fetch('http://54.180.145.32/api/search/all')
+  .then(res => res.json())
+  .then(json => {
+      res.render('pages/index', {
+        events: json,
+        date: moment().format('YYYY-MM-DD HH:mm:ss')
+      });
+   })
+  .catch(err => { console.error(err); });
 };
 
 var add = function (req, res) {

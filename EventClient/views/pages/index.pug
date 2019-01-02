@@ -81,6 +81,27 @@ block main_page
       .col-lg-12
         .ibox.float-e-margins
           .ibox-title
+            h5 All User Information
+          .ibox-content
+            table.table.table-hover
+              thead
+                tr
+                  th user id
+                  th event name
+                  th price
+                  th currency
+              tbody
+                each event in events
+                  tr
+                    td=event.user_id
+                    td=event.event_name
+                    td=event.parameters.price
+                    td=event.parameters.currency
+
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
             h5 Request Form
           .ibox-content
             form.form-horizontal#submitform
@@ -88,9 +109,9 @@ block main_page
                 .col-lg-2.control-label 사용자
                 .col-lg-6
                   select.form-control.m-b(name='user')
-                    option User1
-                    option User2
-                    option User3
+                    option user1
+                    option user2
+                    option user3
               .form-group
                 .col-lg-2.control-label 이벤트
                 .col-lg-6
